@@ -1,4 +1,4 @@
-package cybercafe;
+package cybercafeadmin;
 import java.io.*;
 import java.net.*;
 

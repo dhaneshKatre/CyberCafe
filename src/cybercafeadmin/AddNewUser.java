@@ -1,4 +1,4 @@
-package cybercafe;
+package cybercafeadmin;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JFrame;
@@ -16,9 +16,13 @@ public class AddNewUser extends Frame {
         TextField addressText = new TextField(20);
         Button addUser = new Button("Add");
         addUser.addActionListener((ActionEvent e) -> {
+            if(emailText.getText().trim().isEmpty() || nameText.getText().trim().isEmpty() || phoneText.getText().trim().isEmpty() || addressText.getText().trim().isEmpty()){
+                JOptionPane.showMessageDialog(new JFrame(),"Add proper credentials!", "Alert", JOptionPane.WARNING_MESSAGE); 
+                return;
+            }
             String tp = DatabaseHandler.addNewUser(emailText.getText().trim(), nameText.getText().trim(), phoneText.getText().trim(), addressText.getText().trim());
-            if(tp != null) {
-                JOptionPane.showMessageDialog(new JFrame(),"New user added successfully! Temporary password: " + tp, "Alert", JOptionPane.WARNING_MESSAGE);    
+            if(tp != null) {    
+                JOptionPane.showMessageDialog(new JFrame(),"New user added successfully! Your id: " + tp, "Alert", JOptionPane.WARNING_MESSAGE);    
                 emailText.setText("");
                 phoneText.setText("");
                 nameText.setText("");

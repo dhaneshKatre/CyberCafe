@@ -1,5 +1,5 @@
-package cybercafe;
-import cybercafe.AdminLogin;
+package cybercafeadmin;
+import cybercafeadmin.AdminLogin;
 
 public class CyberCafe {
     public static boolean isAdminLoggedIn = false;

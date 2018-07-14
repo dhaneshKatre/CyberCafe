@@ -1,9 +1,9 @@
-package cybercafe;
+package cybercafeadmin;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
-import cybercafe.CyberCafe;
+import cybercafeadmin.CyberCafe;
 import javafx.embed.swing.JFXPanel;
 
 public class AdminLogin extends Frame {

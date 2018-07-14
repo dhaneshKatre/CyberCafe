@@ -1,7 +1,6 @@
-package cybercafe;
+package cybercafeadmin;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class AdminDashboard extends Frame {
@@ -15,13 +14,28 @@ public class AdminDashboard extends Frame {
         }
         Button checkSystem = new Button("Check System");
         checkSystem.addActionListener((ActionEvent e) -> {
-            
+            new CheckSystem();
+        });
+        Button getReport = new Button("Check Report");
+        getReport.addActionListener((ActionEvent e) -> {
+            new CheckReport();
         });
         Button addNewUser = new Button("New User");
         addNewUser.addActionListener((ActionEvent e) -> {
             new AddNewUser();
         });
         Button updateUser = new Button("Update User");
+        updateUser.addActionListener((e) -> {
+            new UpdateUser();
+        });
+        Button activateUser = new Button("Start User Session");
+        activateUser.addActionListener((ActionEvent e) -> {
+            new StartSession();
+        });
+        Button deactivateUser = new Button("End User Session");
+        deactivateUser.addActionListener((ActionEvent e) -> {
+            new TerminateSession();
+        });
         Button logout = new Button("Logout");
         logout.addActionListener((ActionEvent e) -> { 
             CyberCafe.isAdminLoggedIn = false;
@@ -32,12 +46,15 @@ public class AdminDashboard extends Frame {
             new AdminLogin();
         });
         setLayout(new FlowLayout());
-        setSize(300, 300);
+        setSize(210, 400);
         setVisible(true);
         add(new Label("ADMIN DASHBOARD"));
         add(checkSystem);
+        add(getReport);
         add(addNewUser);
         add(updateUser);
+        add(activateUser);
+        add(deactivateUser);
         add(logout);
     }
 }
